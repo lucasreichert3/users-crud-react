@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import usersImg from "../../../assets/users.png";
+import { primaryColor } from '../../../constans/StyleContans';
 
 export const Wraper = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const Wraper = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  background-color: #e9e9e9;
+  background-color: #d9d9d9;
   display: flex;
   height: 100vh;
   width: 70%;
@@ -19,6 +20,8 @@ export const ImageContainer = styled.div`
 export const LoginContainerWraper = styled.div`
   display: flex;
   width: 30%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const TitleContainer = styled.div`
@@ -44,6 +47,49 @@ export const LoginContainer = styled.div`
 
 export const InputsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 5em;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: ${(props) => props.applyMargin ? '2em' : 0};
+`;
+
+export const ForgetPasswordText = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 1em 0;
+
+  span {
+    color: #333;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  span:hover {
+    color: ${primaryColor};
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 2em;
+  justify-content: center;
+
+  div {
+    width: 75%;
+  }
+`;
+
+export const CreateAccountText = styled.span`
+  color: ${primaryColor};
+  font-size: 20px;
+  cursor: pointer;
+
+  :hover {
+    color: #333;
+  }
 `;

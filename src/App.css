@@ -48,3 +48,7 @@ input {
 	outline: none;
 	font-family: 'Open Sans', sans-serif;
 }
+
+* {
+	outline: none;
+}

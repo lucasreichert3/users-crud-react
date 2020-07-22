@@ -1,13 +1,18 @@
-import React from 'react';
-import { InputContainer } from './styles.js';
+import React from "react";
+import { InputContainer } from "./styles.js";
 
-export default function Input(props) {
-
-    return (
-        <InputContainer>
-            {props.children}
-            <input type="text" value={props.value} />
-        </InputContainer>
-    );
-
+export default function Input({
+  children,
+  type,
+  name,
+  value,
+  onValueChange,
+  placeholder,
+}) {
+  return (
+    <InputContainer>
+      {children}
+      <input type={type} name={name} value={value} onChange={onValueChange} placeholder={placeholder} />
+    </InputContainer>
+  );
 }
