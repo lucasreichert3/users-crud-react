@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import UsersList from './views/users/UsersList';
-import Login from './views/auth/Login';
+import Login from './views/auth/login/Login';
 
 export default () => {
     return (
