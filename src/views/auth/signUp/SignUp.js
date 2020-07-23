@@ -17,6 +17,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { withRouter } from 'react-router-dom';
 import Button from '../../../components/button/Button';
+import { setCookie } from '../login/LoginHandler';
 
 const INIT_STATE = {
   name: "",
@@ -37,6 +38,11 @@ function SignUp(props) {
   const redirectTo = (path) => {
     props.history.push(path);
   };
+
+  const handleClick = () => {
+    setCookie(signUpForm.email);
+    redirectTo('/users');
+  }
 
   return (
     <SignupContainer>
@@ -117,7 +123,7 @@ function SignUp(props) {
         </InputContainer>
         <CentralizedContainer applyMargin>
             <ButtonContainer>
-                <Button text="Criar conta"></Button>
+                <Button text="Criar conta" click={() => handleClick()}></Button>
             </ButtonContainer>
         </CentralizedContainer>
       </InputsContainer>

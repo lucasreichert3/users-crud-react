@@ -10,12 +10,13 @@ import {
 } from "./styles";
 import Input from "../../../components/input/Input";
 import Button from "../../../components/button/Button";
-import PersonIcon from "@material-ui/icons/Person";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockIcon from "@material-ui/icons/Lock";
 import { withRouter } from 'react-router-dom';
+import { setCookie } from './LoginHandler';
 
 const INIT_STATE = {
-  username: "",
+  email: "",
   password: "",
 };
 
@@ -30,6 +31,13 @@ function Login(props) {
     props.history.push(path);
   };
 
+  const handleClick = () => {
+    if (loginForm.email && loginForm.password) {
+      setCookie(loginForm.email);
+      redirectTo('/users');
+    }
+  }
+
   return (
     <LoginContainer>
       <TitleContainer>
@@ -40,11 +48,11 @@ function Login(props) {
           <Input
             type="text"
             value={loginForm?.user}
-            name="username"
-            placeholder="Usuário"
+            name="email"
+            placeholder="Email"
             onValueChange={setFieldValue}
           >
-            <PersonIcon />
+            <MailOutlineIcon />
           </Input>
         </Container>
         <Container applyMargin>
@@ -63,7 +71,7 @@ function Login(props) {
         </ForgetPasswordText>
         <ButtonContainer>
           <div>
-            <Button text="Entrar"></Button>
+            <Button text="Entrar" click={() => handleClick()}></Button>
           </div>
         </ButtonContainer>
         <ButtonContainer>
