@@ -1,14 +1,28 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import UsersList from './views/users/UsersList';
-import Auth from './views/auth/Auth.routes';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import UsersList from "./views/users/UsersList";
+import RouteWithLayout from "./components/routeWithLayout/RouteWithLayout";
+import Login from "./views/auth/login/Login";
+import SignUp from "./views/auth/signUp/SignUp";
+import AuthLayout from "./views/auth/main/Auth";
 
 export default () => {
-    return (
-        <Switch>
-            <Route exact path="/login" component={Auth}></Route>
-            <Route exact path="/signup" component={Auth}></Route>
-            <Route exact path="/users" component={UsersList}></Route>
-        </Switch>
-    );
-}
+  return (
+    <Switch>
+      <Redirect exact from="/" to="/login" />
+      <RouteWithLayout
+        exact
+        path="/login"
+        layout={AuthLayout}
+        component={Login}
+      ></RouteWithLayout>
+      <RouteWithLayout
+        exact
+        path="/signup"
+        layout={AuthLayout}
+        component={SignUp}
+      ></RouteWithLayout>
+      <Route exact path="/users" component={UsersList}></Route>
+    </Switch>
+  );
+};
