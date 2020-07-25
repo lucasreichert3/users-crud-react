@@ -13,7 +13,7 @@ import Button from "../../../components/button/Button";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockIcon from "@material-ui/icons/Lock";
 import { withRouter } from 'react-router-dom';
-import { setCookie } from './LoginHandler';
+import { useAuth } from '../../../contexts/Auth';
 
 const INIT_STATE = {
   email: "",
@@ -22,6 +22,7 @@ const INIT_STATE = {
 
 function Login(props) {
   const [loginForm, setLoginForm] = useState(INIT_STATE);
+  const { login } = useAuth();
 
   const setFieldValue = ({ target: { value, name } }) => {
     setLoginForm({ ...loginForm, [name]: value });
@@ -33,7 +34,7 @@ function Login(props) {
 
   const handleClick = () => {
     if (loginForm.email && loginForm.password) {
-      setCookie(loginForm.email);
+      login(loginForm.email);
       redirectTo('/users');
     }
   }

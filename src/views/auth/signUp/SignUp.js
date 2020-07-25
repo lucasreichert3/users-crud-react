@@ -17,7 +17,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { withRouter } from 'react-router-dom';
 import Button from '../../../components/button/Button';
-import { setCookie } from '../login/LoginHandler';
+import { useAuth } from '../../../contexts/Auth';
 
 const INIT_STATE = {
   name: "",
@@ -30,6 +30,7 @@ const INIT_STATE = {
 
 function SignUp(props) {
   const [signUpForm, setsignUpForm] = useState(INIT_STATE);
+  const { login } = useAuth();
 
   const setFieldValue = ({ target: { value, name } }) => {
     setsignUpForm({ ...signUpForm, [name]: value });
@@ -40,7 +41,7 @@ function SignUp(props) {
   };
 
   const handleClick = () => {
-    setCookie(signUpForm.email);
+    login(signUpForm.email);
     redirectTo('/users');
   }
 
