@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { InputContainer, Container, ErrorMessageContainer } from './styles.js';
 import { applyValidators } from '../../components/formValidator/FormValidator';
+import MaskedInput from 'react-text-mask';
 
 export default function Input({
   icon: Icon,
@@ -11,7 +12,8 @@ export default function Input({
   placeholder,
   valid,
   validators,
-  submittedMessage
+  submittedMessage,
+  mask,
 }) {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -32,13 +34,24 @@ export default function Input({
     <Container>
       <InputContainer hasError={hasError}>
         <Icon />
-        <input
-          type={type}
-          name={name}
-          value={value}
-          onChange={handleChange}
-          placeholder={placeholder}
-        />
+        {mask ? (
+          <MaskedInput
+            mask={mask}
+            type={type}
+            name={name}
+            value={value}
+            onChange={handleChange}
+            placeholder={placeholder}
+          />
+        ) : (
+          <input
+            type={type}
+            name={name}
+            value={value}
+            onChange={handleChange}
+            placeholder={placeholder}
+          />
+        )}
       </InputContainer>
       {hasError && (
         <ErrorMessageContainer>

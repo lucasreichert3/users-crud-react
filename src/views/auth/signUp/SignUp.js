@@ -86,6 +86,7 @@ function SignUp(props) {
           </InputContainer>
           <InputContainer applyMargin>
             <Input
+              mask={[/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-',/\d/, /\d/]}
               type="title"
               icon={AssignmentIndIcon}
               value={signUpForm?.cpf?.value}
@@ -99,6 +100,7 @@ function SignUp(props) {
           </InputContainer>
           <InputContainer applyMargin>
             <Input
+              mask={['(', /\d/, /\d/, ')', ' ' , /\d/, /\d/, /\d/, /\d/, /\d/, '-',/\d/, /\d/, /\d/, /\d/]}
               type="title"
               icon={PhoneIcon}
               value={signUpForm?.number?.value}
