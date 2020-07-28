@@ -15,18 +15,18 @@ import LockIcon from '@material-ui/icons/Lock';
 import { withRouter } from 'react-router-dom';
 import { useAuth } from '../../../contexts/Auth';
 import { validateForm } from '../../../components/formValidator/FormValidator';
-import { requiredValidator } from '../../../components/formValidator/FormValidator';
+import { Validators } from '../../../components/formValidator/FormValidator';
 
 const INIT_STATE = {
   email: {
     value: '',
-    validators: [requiredValidator],
+    validators: [Validators.required, Validators.email],
     valid: true,
     errorMessage: '',
   },
   password: {
     value: '',
-    validators: [requiredValidator],
+    validators: [Validators.required],
     valid: true,
     errorMessage: '',
   },

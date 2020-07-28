@@ -1,39 +1,39 @@
-import { requiredValidator } from '../../../components/formValidator/FormValidator';
+import { Validators } from '../../../components/formValidator/FormValidator';
 
 export const getSignUpForm = {
     name: {
       value: '',
-      validators: [requiredValidator],
+      validators: [Validators.required],
       valid: true,
       errorMessage: '',
     },
     email: {
       value: '',
-      validators: [requiredValidator],
+      validators: [Validators.required, Validators.email],
       valid: true,
       errorMessage: '',
     },
     cpf: {
       value: '',
-      validators: [requiredValidator],
+      validators: [Validators.required],
       valid: true,
       errorMessage: '',
     },
     number: {
       value: '',
-      validators: [requiredValidator],
+      validators: [Validators.required],
       valid: true,
       errorMessage: '',
     },
     password: {
       value: '',
-      validators: [requiredValidator],
+      validators: [Validators.required],
       valid: true,
       errorMessage: '',
     },
     confirmPassword: {
       value: '',
-      validators: [requiredValidator],
+      validators: [Validators.required],
       valid: true,
       errorMessage: '',
     },
