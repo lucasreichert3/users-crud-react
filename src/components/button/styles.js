@@ -11,4 +11,9 @@ export const StyledButton = styled.button`
     border-radius: 50px;
     font-size: 22px;
     cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        opacity: .8;
+    }
 `

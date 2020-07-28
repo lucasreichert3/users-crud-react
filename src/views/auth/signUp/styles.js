@@ -5,7 +5,7 @@ export const SignupContainer = styled.div`
   justify-content: center;
   align-content: baseline;
   flex-wrap: wrap;
-  padding: 5em 2.5em;
+  padding: .7em 2.5em;
   width: 100%;
 `
 
@@ -19,6 +19,10 @@ export const InputsContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin-top: 3em;
+
+  form {
+    width: 100%;
+  }
 `;
 
 export const InputContainer = styled.div`

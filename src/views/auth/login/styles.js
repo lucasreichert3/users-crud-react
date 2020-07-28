@@ -27,6 +27,10 @@ export const InputsContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin-top: 5em;
+
+  form {
+    width: 100%;
+  }
 `;
 
 export const Container = styled.div`
