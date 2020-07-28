@@ -28,5 +28,5 @@ export const applyValidators = (validators, value) => {
 
 export const requiredValidator = (value) => ({
   hasError: value.trim() === '',
-  message: 'Este campo é obrigátorio!',
+  message: 'Este campo é obrigatório!',
 });
