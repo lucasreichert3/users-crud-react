@@ -96,6 +96,7 @@ function SignUp(props) {
               valid={signUpForm?.cpf?.valid}
               validators={signUpForm?.cpf?.validators}
               submittedMessage={signUpForm?.cpf?.errorMessage}
+              length={signUpForm?.cpf?.length}
             ></Input>
           </InputContainer>
           <InputContainer applyMargin>
@@ -110,6 +111,7 @@ function SignUp(props) {
               valid={signUpForm?.number?.valid}
               validators={signUpForm?.number?.validators}
               submittedMessage={signUpForm?.number?.errorMessage}
+              length={signUpForm?.number?.length}
             ></Input>
           </InputContainer>
           <InputContainer applyMargin>

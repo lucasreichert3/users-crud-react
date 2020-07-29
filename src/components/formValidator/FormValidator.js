@@ -2,10 +2,10 @@ export const validateForm = (form) => {
   let isValid = true;
   for (const fieldName in form) {
     const field = form[fieldName];
-    const [{ hasError, message }] = applyValidators(
-      field.validators,
-      field.value
-    );
+    const [{ hasError, message }] = applyValidators(field.validators, {
+      value: field.value,
+      length: field.length,
+    });
     if (hasError) {
       isValid = false;
     }
@@ -21,20 +21,26 @@ export const applyValidators = (validators, value) => {
   return errors && errors.length ? errors : [{ hasError: false, message: '' }];
 };
 
-const requiredValidator = (value) => ({
+const requiredValidator = ({ value }) => ({
   hasError: value.trim() === '',
   message: 'Este campo é obrigátorio!',
 });
 
-const emailValidator = (value) => {
+const emailValidator = ({ value }) => {
   const emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return {
     hasError: !value.match(emailPattern),
-    message: 'Formato de email inválido!'
+    message: 'Formato de email inválido!',
   };
 };
 
+const minLengthValidator = ({ value, length }) => ({
+  hasError: value.trim().length < length,
+  message: `O campo deve ter no mínimo ${length} carácteres!`,
+});
+
 export const Validators = {
   required: requiredValidator,
-  email: emailValidator
+  email: emailValidator,
+  minLength: minLengthValidator
 };

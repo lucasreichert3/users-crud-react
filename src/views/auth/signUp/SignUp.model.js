@@ -15,15 +15,17 @@ export const getSignUpForm = {
     },
     cpf: {
       value: '',
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.minLength],
       valid: true,
       errorMessage: '',
+      length: 14
     },
     number: {
       value: '',
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.minLength],
       valid: true,
       errorMessage: '',
+      length: 15
     },
     password: {
       value: '',

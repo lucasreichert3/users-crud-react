@@ -14,6 +14,7 @@ export default function Input({
   validators,
   submittedMessage,
   mask,
+  length
 }) {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -24,7 +25,7 @@ export default function Input({
   }, [valid, submittedMessage]);
 
   const handleChange = ({ target: { value, name } }) => {
-    const [{ hasError, message }] = applyValidators(validators, value);
+    const [{ hasError, message }] = applyValidators(validators, { value, length });
     setHasError(hasError);
     setErrorMessage(message);
     onValueChange({ value, name });
@@ -42,6 +43,7 @@ export default function Input({
             value={value}
             onChange={handleChange}
             placeholder={placeholder}
+            guide={false}
           />
         ) : (
           <input
