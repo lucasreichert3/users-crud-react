@@ -23,7 +23,7 @@ export const applyValidators = (validators, value) => {
 
 const requiredValidator = ({ value }) => ({
   hasError: value.trim() === '',
-  message: 'Este campo é obrigátorio!',
+  message: 'Este campo é obrigatório!',
 });
 
 const emailValidator = ({ value }) => {
