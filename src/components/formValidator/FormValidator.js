@@ -15,6 +15,16 @@ export const validateForm = (form) => {
   return { form, isValid };
 };
 
+export const setAllValid = (form) => {
+  for (const fieldName in form) {
+    const field = form[fieldName];
+    field.valid = true;
+    field.value = '';
+    field.errorMessage = '';
+  }
+  return form;
+};
+
 export const applyValidators = (validators, value) => {
   const applyFieldValidator = validators.map((validator) => validator(value));
   const errors = applyFieldValidator.filter(({ hasError }) => hasError);

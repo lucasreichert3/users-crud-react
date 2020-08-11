@@ -9,7 +9,7 @@ export const StyledButton = styled.button`
     color: #fff;
     text-decoration: uppercase;
     border-radius: 50px;
-    font-size: 22px;
+    font-size: ${({ small }) => small ? '16px' : '22px'};
     cursor: pointer;
     transition: 200ms;
 
