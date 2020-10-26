@@ -45,6 +45,8 @@ export const HeaderItem = styled.div`
 
 export const UserItem = styled.div`
     padding: 1em 3em;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid #e9e9e9;
     transition: 200ms;
 

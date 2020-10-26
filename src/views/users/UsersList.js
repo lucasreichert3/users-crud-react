@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../contexts/Auth';
 import { UsersWrapper, UsersContainer, PageHeader } from './style';
 import UsersTable from './components/usersTable/UsersTable';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { useAuth } from '../../contexts/Auth';
-import { withRouter } from 'react-router-dom';
-import { getUsers } from './service/UsersService';
+import api from '../../services/Api';
 
 function UserList(props) {
     const [users, setUsers] = useState([]);
     const { logout } = useAuth();
 
-
     useEffect(() => {
         async function getUser() {
-            await getUsers().then(({ data: { users } }) => setUsers(users));
+            const { data: { users } } = await api.get('users');
+            setUsers(users);
         }
-
+        
         getUser();
     }, []);
 
@@ -38,4 +37,4 @@ function UserList(props) {
     );
 }
 
-export default withRouter(UserList);
+export default UserList;

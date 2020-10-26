@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ModalWrapper, InputsContainer, InputContainer, CentralizedContainer, ButtonContainer } from './styles';
 import Input from '../../../../components/input/Input';
 import Button from '../../../../components/button/Button';
-import { Validators, validateForm, setAllValid } from '../../../../components/formValidator/FormValidator';
+import { Validators, validateForm } from '../../../../components/formValidator/FormValidator';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PersonIcon from '@material-ui/icons/Person';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
@@ -43,7 +43,7 @@ export const ModalContent = ({ user }) => {
     useEffect(() => {
         // if (user && user.id) {
           setUserForm({ 
-              name: {...userForm.name, value: getUserValue('name'), valid: true}, 
+              name: {...userForm.fullName, value: getUserValue('fullName'), valid: true}, 
               email: { ...userForm.email, value: getUserValue('email'), valid: true },
               cpf:  { ...userForm.cpf, value: getUserValue('cpf'), valid: true},
               number:  { ...userForm.number, value: getUserValue('number'), valid: true }

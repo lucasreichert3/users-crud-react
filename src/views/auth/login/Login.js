@@ -12,7 +12,6 @@ import Input from '../../../components/input/Input';
 import Button from '../../../components/button/Button';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LockIcon from '@material-ui/icons/Lock';
-import { withRouter } from 'react-router-dom';
 import { useAuth } from '../../../contexts/Auth';
 import { validateForm } from '../../../components/formValidator/FormValidator';
 import { Validators } from '../../../components/formValidator/FormValidator';
@@ -45,13 +44,13 @@ function Login(props) {
     props.history.push(path);
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     const { form, isValid } = validateForm(loginForm);
     setLoginForm({ ...loginForm, ...form });
     if (isValid) {
-      login(loginForm.email.value);
-      redirectTo('/users');
+      login(loginForm.email.value, loginForm.password.value)
+        .then(() => redirectTo('/users'));
     }
   };
 
@@ -107,4 +106,4 @@ function Login(props) {
   );
 }
 
-export default withRouter(Login);
+export default Login;

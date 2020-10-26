@@ -38,7 +38,7 @@ export default function UsersTable({ users }) {
       <div className="content">
         {users?.map((user, i) => (
           <UserItem key={i}>
-            <HeaderItem className="name">{user.name}</HeaderItem>
+            <HeaderItem className="name">{user.fullName}</HeaderItem>
             <HeaderItem className="cpf">{user.cpf}</HeaderItem>
             <HeaderItem className="email">{user.email}</HeaderItem>
             <HeaderItem className="number">{user.number}</HeaderItem>

@@ -41,7 +41,7 @@ function SignUp(props) {
     const { form, isValid } = validateForm(signUpForm);
     setsignUpForm({ ...signUpForm, ...form });
     if (isValid) {
-      login(signUpForm.email.value);
+      login(signUpForm.email.value, signUpForm.password.value);
       redirectTo('/users');
     }
   };
